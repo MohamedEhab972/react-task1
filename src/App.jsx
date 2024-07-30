@@ -8,13 +8,15 @@ import About from "./Componants/About/About";
 import Portofolio from "./Componants/Portofolio/Portofolio";
 import Contact from "./Componants/Contact/Contact";
 import Error from "./Componants/Error/Error";
+import Home from "./Componants/Home/Home";
 
 let x = createBrowserRouter([
   {
     path: "",
     element: <Layout />,
     children: [
-      { index: true, element: <About /> },
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
       { path: "portofolio", element: <Portofolio /> },
       { path: "contact", element: <Contact /> },
       { path: "*", element: <Error /> },

@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "flowbite";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+  function move() {
+    if (window.scrollY > 10) {
+      nav.classList.replace("p-4", "p-8");
+    } else {
+      nav.classList.replace("p-8", "p-4");
+    }
+  }
+  window.addEventListener("scroll", function () {
+    move();
+  });
+
+  useEffect(() => {
+    let nav = document.getElementById("nav");
+  }, []);
   return (
     <>
-      <nav className="text-white z-50 fixed top-0 w-full p-4 bg-[#2c3e50] ">
+      <nav
+        id="nav"
+        className="text-white z-50 fixed top-0 w-full p-4 bg-[#2c3e50] transition-all duration-700"
+      >
         <div className="flex flex-wrap items-center justify-evenly md:justify-between p-3">
           <a
             href="https://flowbite.com/"
@@ -29,7 +46,7 @@ export default function Navbar() {
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  rounded-lg  md:flex-row md:space-x-3 rtl:space-x-reverse md:mt-0   dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <NavLink
-                  to=""
+                  to="about"
                   className="block font-bold text-md py-2 px-3 text-white rounded-md"
                   aria-current="page"
                 >
